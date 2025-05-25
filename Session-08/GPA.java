@@ -62,7 +62,7 @@ class Demo{
 	
 	static float getPoint(String subjectCode,int credit,int index){
 		System.out.print("Enter the Grade for "+subjectCode+": ");
-		grades[index]=sc.nextLine();
+		grades[index]=sc.nextLine().toUpperCase();
 		System.out.println("Grade point value of the grade "+grades[index]+" is "+g.gradePoint(grades[index]));
 		System.out.println("Overall Grade point is "+g.gradePoint(grades[index])*credit);
 		return g.gradePoint(grades[index])*credit;
