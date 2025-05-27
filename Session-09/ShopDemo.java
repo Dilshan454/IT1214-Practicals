@@ -33,6 +33,11 @@ class ShopDemo{
 			itemBasketIndex[basketIndex]=(byte)itemIndex;
 			itemBasketQuantity[basketIndex]=numberOfUnits;
 			basketIndex++;
+
+			if (basketIndex >= 3) {
+                System.out.println("Basket is full. Proceeding to checkout.");
+                break;
+            }
 			
 			System.out.println("Enter y to continue,press any charcter to exit");
 			
@@ -44,9 +49,14 @@ class ShopDemo{
 	
 	static void showBasket(){
 		System.out.println("No \t Item \t Unit Price \t Quantity \t Price");
-		for(int i=0;i<basketIndex;i++){
-			System.out.println(i+1+" \t "+description[i]+" \t "+unitPrice[itemBasketIndex[i]]+" \t\t "+itemBasketQuantity[i]+" \t ");
-		}
+		 int total = 0;
+        for (int i = 0; i < basketIndex; i++) {
+            int index = itemBasketIndex[i];
+            int price = unitPrice[index] * itemBasketQuantity[i];
+            total += price;
+            System.out.printf("%d \t%-15s Rs.%-8d \t%-8d \tRs.%d\n", (i + 1), description[index], unitPrice[index], itemBasketQuantity[i], price);
+        }
+        System.out.println("\nTotal Amount: Rs." + total);
 	}
 	
 	public static void main(String args[]){
