@@ -23,6 +23,10 @@ class ShopDemo{
 			}
 			
 			int itemIndex=sc.nextInt();
+
+			if (itemIndex < 0 || itemIndex >= description.length) {
+                System.out.println("Invalid item selected. Try again.");
+                continue;
 			
 			System.out.println("You have chosen "+description[itemIndex]+" for Rs. "+unitPrice[itemIndex]);
 			
