@@ -24,8 +24,7 @@ class ShopDemo{
 			
 			int itemIndex=sc.nextInt();
 			
-			System.out.println("You have chosen "+description[itemIndex]);
-			System.out.println("You have chosen "+description[itemIndex]+" is "+unitPrice[itemIndex]);
+			System.out.println("You have chosen "+description[itemIndex]+" for Rs. "+unitPrice[itemIndex]);
 			
 			System.out.println("Enter the quantity");
 			int numberOfUnits=sc.nextInt();
@@ -41,8 +40,8 @@ class ShopDemo{
 			
 			System.out.println("Enter y to continue,press any charcter to exit");
 			
-			Scanner sc1=new Scanner(System.in);
-			userOption=sc1.nextLine().charAt(0);
+			
+			userOption=sc.nextLine().charAt(0);
 		}
 		while(userOption=='y' && basketIndex<3);
 	}
