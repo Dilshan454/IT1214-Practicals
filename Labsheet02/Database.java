@@ -4,6 +4,40 @@ class Item{
 	private double unitPrice;
 	private int quantityAvailable;
 
+    //constructor
+    Item(String description,String name,double unitPrice,int quantityAvailable){
+		this.description=description;
+		this.name=name;
+		this.unitPrice=unitPrice;
+		this.quantityAvailable=quantityAvailable;
+	}
+
+    //getter and setter
+    public String getDescription(){
+		return description;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public double getUnitPrice(){
+		return unitPrice;
+	}
+	
+	public int getQuantityAvailable(){
+		return quantityAvailable;
+	}
+	
+	public void setUnitPrice(double unitPrice){
+		this.unitPrice=unitPrice;
+	}
+		
+	public void setQuantityAvailable(int quantityAvailable){
+		this.quantityAvailable=quantityAvailable;
+	}
+	
+
 }
 
 
