@@ -41,6 +41,24 @@ class Item{
 }
 
 
+class Customer{
+	private String customerName;
+	private int contactDetails;
+	
+	Customer(String customerName,int contactDetails){
+		this.customerName=customerName;
+		this.contactDetails=contactDetails;
+	}
+	
+	public String getCustomerName(){
+		return customerName;
+	}
+	
+	public int getContactDetails(){
+		return contactDetails;
+	}
+}
+
 public class Database{
     static void displayMenu(){
         System.out.println("------ Inventory Management ------");
