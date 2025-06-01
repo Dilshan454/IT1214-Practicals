@@ -80,6 +80,13 @@ public class Database{
 		
 	}
 
+	static void listAllItems(){
+		System.out.println("Listing Items Available");
+		for(Item e:items){
+			System.out.println("Item name:"+e.getName());
+		}
+	}
+
 
     static void displayMenu(){
         System.out.println("------ Inventory Management ------");
