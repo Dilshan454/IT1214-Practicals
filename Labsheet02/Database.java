@@ -1,3 +1,4 @@
+import java.util.*;
 
 class Item{
     private String description, name;
@@ -60,6 +61,26 @@ class Customer{
 }
 
 public class Database{
+	static ArrayList<Item> items=new ArrayList<>();
+ 	static Scanner sc=new Scanner(System.in);
+
+	static void addItem(Item itm){
+			items.add(itm);
+	}
+	
+	static void removeItem(String item_name){
+		
+		for (Item e: items){
+				
+				if(e.getName().equals(item_name)){
+					items.remove(e);
+				}
+		}
+		
+		
+	}
+
+
     static void displayMenu(){
         System.out.println("------ Inventory Management ------");
         System.out.println("1. Add Item");
@@ -78,7 +99,8 @@ public class Database{
 
     public static void main(String [] arg){
         
+		int option;
             displayMenu();
-        
+			option=sc.nextInt();
     }
 }
