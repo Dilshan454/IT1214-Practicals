@@ -31,6 +31,7 @@ public class Hostal{
                 System.out.print("Enter age of student  "+i+" : ");
                 room[index].age[i]=sc.nextInt();
                 sc.nextLine();
+                break;
             }
 
             /*for (int i = 0; i < 4; i++) {
