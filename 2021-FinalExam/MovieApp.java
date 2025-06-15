@@ -6,7 +6,7 @@ class Movie{
     private Actor leadActor;
     private String productionCompany;
 
-    Movie(String title,int year,double budget,double worldwideEarnings,String productionCompany){
+    Movie(String title,int year,double budget,double worldwideEarnings,Actor leadActor,String productionCompany){
         this.title=title;
         this.year=year;
         this.budget=budget;
@@ -33,6 +33,9 @@ class Movie{
     public String getProductionCompany(){
         return productionCompany;
     }
+    public void setWorldwideEarnings(double worldwideEarnings) {
+        this.worldwideEarnings = worldwideEarnings;
+    }
 
     public void play(){
         System.out.println("Movie: "+title+" ("+year+")");
@@ -40,5 +43,59 @@ class Movie{
         System.out.println("Budget: "+budget);
         System.out.println("Worldwide Earnings: "+worldwideEarnings);
         System.out.println("Lead Actor: "+leadActor);
+    }
+}
+
+
+class Actor{
+    private String name;
+    private String gender;
+    private int age;
+    private String country;
+
+    Actor(String name,String gender,int age,String country){
+        this.name=name;
+        this.gender=gender;
+        this.age=age;
+        this.country=country;
+    }
+
+    public String getName(){
+        return name;
+    }
+    public String getGender(){
+        return gender;
+    }
+    public int getAge(){
+        return age;
+    }
+    public String getCountry(){
+        return country;
+    }
+
+    void displayInfo(){
+        System.out.println("Name: "+name);
+        System.out.println("Gender: "+gender);
+        System.out.println("Age: "+age);
+        System.out.println("Country: "+country);
+    }
+}
+
+public class MovieApp{
+
+
+    public static void main(String[] args){
+        Actor a1=new Actor("Christian Bale","Male",47,"United Kingdom");
+        Actor a2=new Actor("Jim Carrey","Male",60,"Canada");
+        Actor a3=new Actor("Leanado Dicaprio","Male",47,"United St");
+
+        Movie m1=new Movie("The Dark Knight",2008,185,1004,"Christian Bale","Warner Bros");
+        Movie m2=new Movie("Mission:Impossible",2018,178,791,"Tom Cruise","Paramount Pictures");
+        Movie m3=new Movie("Avengers:Endgame",2019,356,2798,"Scarlet Johansson","Marvel Studios");
+
+        m3.setWorldwideEarnings(3000);
+
+        System.out.println("Higest grossing ")
+        
     }
 }
