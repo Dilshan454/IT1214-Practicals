@@ -42,7 +42,7 @@ class Movie{
         System.out.println("Production company:"+productionCompany);
         System.out.println("Budget: "+budget);
         System.out.println("Worldwide Earnings: "+worldwideEarnings);
-        System.out.println("Lead Actor: "+leadActor);
+        System.out.println("Lead Actor: "+leadActor.getName());
     }
 }
 
@@ -89,13 +89,26 @@ public class MovieApp{
         Actor a2=new Actor("Jim Carrey","Male",60,"Canada");
         Actor a3=new Actor("Leanado Dicaprio","Male",47,"United St");
 
-        Movie m1=new Movie("The Dark Knight",2008,185,1004,"Christian Bale","Warner Bros");
-        Movie m2=new Movie("Mission:Impossible",2018,178,791,"Tom Cruise","Paramount Pictures");
-        Movie m3=new Movie("Avengers:Endgame",2019,356,2798,"Scarlet Johansson","Marvel Studios");
+        Movie m1=new Movie("The Dark Knight",2008,185,1004,a1,"Warner Bros");
+        Movie m2=new Movie("Mission:Impossible",2018,178,791,a2,"Paramount Pictures");
+        Movie m3=new Movie("Avengers:Endgame",2019,356,2798,a3,"Marvel Studios");
 
         m3.setWorldwideEarnings(3000);
 
-        System.out.println("Higest grossing ")
+        Movie[] movies = {m1, m2, m3};
+
+        System.out.println("Higest grossing movie");
+        Movie highest = movies[0];
+        for (int i = 1; i < movies.length; i++) {
+            if (movies[i].getWorldwideEarnings() > highest.getWorldwideEarnings()) {
+                highest = movies[i];
+            }
+        }
+        
+        // Display the result
+        System.out.println("\nHighest Grossing Movie:");
+        highest.play();
+        
         
     }
 }
