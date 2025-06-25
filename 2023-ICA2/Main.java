@@ -6,7 +6,7 @@ abstract class Player{
     protected int[] scores;
 
     //constructor
-    public Player(int playerID,String name,String counrty,int[] scores){
+    public Player(int playerID,String name,String country,int[] scores){
         this.playerID=playerID;
         this.name=name;
         this.country=country;
@@ -14,7 +14,7 @@ abstract class Player{
     }
 
     //getter
-    public int GetPlayerID(){
+    public int getPlayerID(){
         return playerID;
     }
     public String getName(){
@@ -67,7 +67,7 @@ class Batsman extends Player{
 
     @Override
     public void printDetails(){
-        System.out.println("Batsman ID: "+GetPlayerID());
+        System.out.println("Batsman ID: "+getPlayerID());
         System.out.println("Batsman Name: "+getName());
         System.out.println("Batsman scores: ");
         for(int score:scores){
@@ -92,7 +92,9 @@ class Bowler extends Player{
 
     private void calculateWickets(){
         for (int score:scores){
-            wickets+= score;
+            if(score>0){
+                wickets++;
+            }
         }
     }
 
@@ -119,9 +121,9 @@ class Bowler extends Player{
 
     @Override
     public void printDetails(){
-        System.out.println("Batsman ID: "+GetPlayerID());
-        System.out.println("Batsman Name: "+getName());
-        System.out.println("Batsman scores: ");
+        System.out.println("Bowler ID: "+getPlayerID());
+        System.out.println("Bowler Name: "+getName());
+        System.out.println("Bowler scores: ");
         for(int score:scores){
             System.out.print(score + " ");
         }
@@ -134,7 +136,7 @@ class Bowler extends Player{
 }
 
 public class Main{
-    public static voiss main(Strings[] args){
+    public static void main(String[] args){
         //batsman scores
         int[] batsman1Scores = {42, 0, 61, 15, 0, 100, 23, 64, 41, 0, 26};
         int[] batsman2Scores = {0, 25, 10, 60, 11, 0, 40, 11, 0, 2, 0};
@@ -151,9 +153,10 @@ public class Main{
 
 
         //create batsman
-        Batsman[] batsman=new Batsman[5];
+        Batsman[] batsmen=new Batsman[5];
+        Bowler[] bowlers=new Bowler[5];
 
-        batsman[0]=new Batsman(1,"Sachin Tendulkar", "India",batsman1Scores);
+        batsmen[0]=new Batsman(1,"Sachin Tendulkar", "India",batsman1Scores);
         batsmen[1] = new Batsman(2, "Virat Kohli", "India",batsman2Scores);
         batsmen[2] = new Batsman(3, "MS Dhoni","India", batsman3Scores);
         batsmen[3] = new Batsman(4, "Ricky Ponting","Australia", batsman4Scores);
@@ -165,5 +168,65 @@ public class Main{
         bowlers[3] = new Bowler(4, "Glenn McGrath","Australia", bowler4Scores);
         bowlers[4] = new Bowler(5, "Dale Steyn","South Africa", bowler5Scores);
 
+
+        System.out.println("------------------Batsman 1 Details-------------------");
+        batsmen[0].addScore(14);
+        batsmen[0].printDetails();
+
+        //print batsmandetails
+        System.out.println("------------------Print Batsman Details-------------------");
+        System.out.println("Batsman Details:");
+        for (Batsman batsman : batsmen) {
+            batsman.printDetails();
+        }
+
+        //details of the Batsman with the highest Runs
+        System.out.println("------------------Find batsman with highest score-------------------");
+        Batsman batsmanWithHighestScore = batsmen[0];
+        for(Batsman batsman:batsmen){
+            if(batsman.getRuns()>batsmanWithHighestScore.getRuns()){
+                batsmanWithHighestScore=batsman;
+            }
+        }
+        System.out.println("Batsman with Highest Score:");
+        batsmanWithHighestScore.printDetails();
+        System.out.println();
+
+
+        //print bowlerdetails
+        System.out.println("------------------Print bowler Details-------------------");
+        System.out.println("Bowler Details:");
+        for (Bowler bowler : bowlers) {
+            bowler.printDetails();
+        }
+
+        System.out.println("------------------Find bowler with highest wickets-------------------");
+        Bowler bowlerWithHighestWickets=bowlers[0];
+        for(Bowler bowler:bowlers){
+            if(bowler.getWickets()>bowlerWithHighestWickets.getWickets()){
+                bowlerWithHighestWickets=bowler;
+            }
+        }
+
+        System.out.println("Bowler with Highest Wickets: ");
+        bowlerWithHighestWickets.printDetails();
+
+
+
+
+        //details of the Players from Australia. 
+        System.out.println("Batsmen from Australia: ");
+        for(Batsman batsman:batsmen){
+            if(batsman.getCountry().equals("Australia")){
+                batsman.printDetails();
+            }
+        }
+
+        System.out.println("Bowlers from Australia: ");
+        for(Bowler bowler:bowlers){
+            if(bowler.getCountry().equals("Australia")){
+                bowler.printDetails();
+            }
+        }
     }
 }

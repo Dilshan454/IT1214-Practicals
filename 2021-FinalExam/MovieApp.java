@@ -96,6 +96,7 @@ public class MovieApp{
         m3.setWorldwideEarnings(3000);
 
         Movie[] movies = {m1, m2, m3};
+        
 
         System.out.println("Higest grossing movie");
         Movie highest = movies[0];
