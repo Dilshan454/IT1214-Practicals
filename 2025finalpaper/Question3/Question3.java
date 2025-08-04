@@ -108,6 +108,18 @@ public class Question3{
                 String delName = sc.nextLine();
                 pb.deleteEntry(delName);
                 break;
+            case 3:
+                System.out.print("Enter name to search: ");
+                    String searchName = sc.nextLine();
+                    Record result = pb.searchPhone(searchName);
+                    if (result != null) {
+                        result.display();
+                    } else {
+                        System.out.println("No record found.");
+                    }
+                    break;
+            case 4:
+                    pb.displayAll();
             case 5:
                 System.out.println("Exiting application.");
                 break; 
