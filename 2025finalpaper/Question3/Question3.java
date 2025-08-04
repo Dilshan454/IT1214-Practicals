@@ -56,10 +56,21 @@ class PhoneBook{
         if (!found) System.out.println("No record found with name: " + name);
     }
     Record searchPhone(String name){
-
+        for (Record r : records) {
+            if (r.getName().equalsIgnoreCase(name)) {
+                return r;
+            }
+        }
+        return null;
     }
     void displayAll(){
-
+         if (records.isEmpty()) {
+            System.out.println("PhoneBook is empty.");
+        } else {
+            for (Record r : records) {
+                r.display();
+            }
+        }
     }
 }
 
